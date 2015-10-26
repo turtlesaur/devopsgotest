@@ -1,4 +1,18 @@
 GO SERVER
 ========
 
-This is just a test
+Steps to install:
+
+go get github.com/kthakore/devopsgotest
+go install github.com/kthakore/devopsgotest/cmd
+
+Test: 
+
+go test github.com/kthakore/devopsgotest -v 
+
+Run:
+$GOPATH/bin/cmd 
+
+Server will run on localhost:12345
+
+
