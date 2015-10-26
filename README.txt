@@ -6,12 +6,12 @@ Steps to install:
 go get github.com/kthakore/devopsgotest
 go install github.com/kthakore/devopsgotest/cmd
 
-Test: 
+Test:
 
-go test github.com/kthakore/devopsgotest -v 
+go test github.com/kthakore/devopsgotest/myserver -v
 
 Run:
-$GOPATH/bin/cmd 
+$GOPATH/bin/cmd
 
 Server will run on localhost:12345
 
