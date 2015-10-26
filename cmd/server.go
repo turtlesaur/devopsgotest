@@ -1,8 +1,8 @@
-package "cmd"
+package cmd
 
 import (
-	"log"
 	"github.com/kthakore/devopsgotest/myserver"
+	"log"
 	"net/http"
 )
 
@@ -17,4 +17,3 @@ func main() {
 	server := http.Server{Handler: mux, Addr: addr}
 	log.Fatal(server.ListenAndServe())
 }
-
