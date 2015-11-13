@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-const addr = "localhost:12345"
+const addr = "0.0.0.0:12345"
 
 func main() {
 	mux := http.NewServeMux()
