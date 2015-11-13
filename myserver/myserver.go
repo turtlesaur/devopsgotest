@@ -1,19 +1,22 @@
-package main
+package myserver
 
 import (
-	"github.com/kthakore/devopsgotest/myserver"
-	"log"
+	"fmt"
 	"net/http"
+	"sync"
 )
 
-const addr = "localhost:12345"
+type MyHandler struct {
+	sync.Mutex
+	count int
+}
 
-func main() {
-	mux := http.NewServeMux()
-	handler := &myserver.MyHandler{}
-	mux.Handle("/favicon.ico", http.NotFoundHandler())
-	mux.Handle("/", handler)
-	log.Printf("Now listening on %s...\n", addr)
-	server := http.Server{Handler: mux, Addr: addr}
-	log.Fatal(server.ListenAndServe())
+func (h *MyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	var count int
+	h.Lock()
+	h.count++
+	count = h.count
+	h.Unlock()
+
+	fmt.Fprintf(w, "Visitor count: %d.", count)
 }
